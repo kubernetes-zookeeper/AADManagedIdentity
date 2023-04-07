@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ALL">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %5p [%t] %c{3} - %m%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.azure.core" level="all" additivity="true">
+            <appender-ref ref="console" />
+        </Logger>
+        <Logger name="com.azure.identity" level="all" additivity="true">
+            <appender-ref ref="console" />
+        </Logger>		
+		<Logger name="com.microsoft.azure" level="all" additivity="true">
+            <appender-ref ref="console" />
+        </Logger>	
+		<Logger name="com.microsoft.sqlserver" level="all" additivity="true">
+            <appender-ref ref="console" />
+        </Logger>	
+        <Root level="all" additivity="false">
+            <appender-ref ref="console" />
+        </Root>
+     </Loggers>
+</Configuration>
