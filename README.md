@@ -46,7 +46,7 @@ cd AADManagedIdentity
 Invoke-WebRequest https://github.com/kubernetes-zookeeper/AADManagedIdentity/archive/refs/heads/main.zip -UseBasicParsing -OutFile AADManagedIdentity.zip
 Expand-Archive .\AADManagedIdentity.zip
 ```
-Alternatively, Clone this repository:
+Alternatively, clone this repository:
 ```Shell
 git clone https://github.com/kubernetes-zookeeper/AADManagedIdentity.git
 ```
