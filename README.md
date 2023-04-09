@@ -31,7 +31,7 @@ In the following sample, you will create the following:
 - [Azure SQL database](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity-create-server?view=azuresql&tabs=azure-portal).
 ### Step 1: Download or clone this repository
 
-From a [Windows PowerShell](http://%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe):
+From a Windows PowerShell (%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe):
 
 
 1. Create the `AADManagedIdentity` folder:
@@ -99,7 +99,7 @@ CLIENT_ID=f330da90-xxxx-xxxx-xxxx-b5aa3508fa25
 
 ### Step 4: Run the sample
 
-From a [Windows PowerShell](http://%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe), run the sample using the following command:
+From a Windows PowerShell (%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe), run the sample using the following command:
 ```
 .\AADManagedIdentity\AADManagedIdentity-main\java\bin\java.exe -jar .\AADManagedIdentity\AADManagedIdentity-main\target\AADManagedIdentity-1.0.0.jar .\AADManagedIdentity\AADManagedIdentity-main\src\main\resources\application.properties
 ```
