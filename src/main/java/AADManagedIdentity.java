@@ -5,6 +5,10 @@ import java.sql.Statement;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerXADataSource;
 
+import org.apache.tomcat.jdbc.pool.DataSource;
+import org.apache.tomcat.jdbc.pool.PoolProperties;
+import org.apache.tomcat.jdbc.pool.PoolConfiguration;
+
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -16,7 +20,6 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 public class AADManagedIdentity {
 
   private static final Logger logger = LogManager.getLogger(AADManagedIdentity.class);
@@ -26,12 +29,24 @@ public class AADManagedIdentity {
   private static String userClientId;
 
   public static void main(String[] args) throws Exception {
-	  
-	logger.info("Azure Active Directory Managed Identity");
+
+    logger.info("Azure Active Directory Managed Identity");
 
     readProperties(args);
 
-    SQLServerDataSource ds = new SQLServerXADataSource();
+    org.apache.tomcat.jdbc.pool.DataSource datasource = createDataSource(serverName, databaseName, userClientId);
+
+    System.out.println("Connecting to '" + databaseName + "' @ '" + serverName + "' using user managed identity '" + userClientId + "'...");
+    try (Connection connection = datasource.getConnection(); Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery("SELECT SUSER_SNAME()")) {
+      if (rs.next()) {
+        System.out.println("\n\nYou have successfully logged on as: '" + rs.getString(1) + "'\n\n");
+      }
+    }
+  }
+
+  private static org.apache.tomcat.jdbc.pool.DataSource createDataSource(String serverName, String databaseName, String userClientId) {
+
+    SQLServerXADataSource ds = new SQLServerXADataSource();
     ds.setServerName(serverName);
     ds.setDatabaseName(databaseName);
     ds.setAuthentication("ActiveDirectoryManagedIdentity");
@@ -41,14 +56,12 @@ public class AADManagedIdentity {
       System.out.println("Using the default user managed identity of the current Azure Virtual Machine...");
     }
 
-    System.out.println("Connecting to '" + databaseName + "' @ '" + serverName + "' using user managed identity '" + userClientId + "'...");
-    try (Connection connection = ds.getConnection(); 
-			Statement stmt = connection.createStatement(); 
-			ResultSet rs = stmt.executeQuery("SELECT SUSER_SNAME()")) {
-      if (rs.next()) {
-        System.out.println("\n\nYou have successfully logged on as: '" + rs.getString(1) + "'\n\n");
-      }
-    }
+    PoolConfiguration p = new PoolProperties();
+    p.setDataSource(ds);
+
+    org.apache.tomcat.jdbc.pool.DataSource datasource = new org.apache.tomcat.jdbc.pool.DataSource();
+    datasource.setPoolProperties(p);
+    return datasource;
   }
 
   private static void readProperties(String[] args) throws IOException {
