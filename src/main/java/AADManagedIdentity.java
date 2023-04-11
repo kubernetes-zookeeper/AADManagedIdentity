@@ -1,10 +1,11 @@
-import com.microsoft.sqlserver.jdbc.SQLServerXADataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.tomcat.jdbc.pool.PoolConfiguration;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
 
-import java.io.*;
+import java.io.InputStream;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
@@ -26,7 +27,7 @@ public class AADManagedIdentity {
 
         readProperties(args);
 
-        org.apache.tomcat.jdbc.pool.DataSource datasource = createDataSource(serverName, databaseName, userClientId);
+        javax.sql.DataSource datasource = createDataSource(serverName, databaseName, userClientId);
 
         System.out.println("Connecting to '" + databaseName + "' @ '" + serverName +
                 "' using user managed identity '" + userClientId + "'...");
@@ -39,25 +40,21 @@ public class AADManagedIdentity {
         }
     }
 
-    private static org.apache.tomcat.jdbc.pool.DataSource createDataSource(String serverName,
+    private static javax.sql.DataSource createDataSource(String serverName,
                                                                            String databaseName,
                                                                            String userClientId) {
 
-        SQLServerXADataSource ds = new SQLServerXADataSource();
-        ds.setServerName(serverName);
-        ds.setDatabaseName(databaseName);
-        ds.setAuthentication("ActiveDirectoryManagedIdentity");
-        if (userClientId != null && !userClientId.isEmpty()) {
-            ds.setUser(userClientId);
-        } else {
-            System.out.println("Using the default user managed identity of the current Azure Virtual Machine...");
-        }
-
-        PoolConfiguration p = new PoolProperties();
-        p.setDataSource(ds);
-
         org.apache.tomcat.jdbc.pool.DataSource datasource = new org.apache.tomcat.jdbc.pool.DataSource();
-        datasource.setPoolProperties(p);
+        datasource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+        Properties properties = new Properties();
+        properties.put("authentication", "ActiveDirectoryManagedIdentity");
+        properties.put("user", userClientId);
+
+        datasource.setDbProperties(properties);
+        String baseUrl = "jdbc:sqlserver://" + serverName + ";database=" + databaseName;
+        datasource.setUrl(baseUrl);
+
         return datasource;
     }
 
