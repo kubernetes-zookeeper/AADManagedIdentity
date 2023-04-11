@@ -159,6 +159,7 @@ For more information, see:
 - [Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview)
 - [Use a managed identity in Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity)
 - [Best practices for authentication and authorization in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-identity)
+- [Migrate an application to use passwordless connections with Azure SQL Database](https://github.com/MicrosoftDocs/azure-dev-docs/blob/main/articles/java/spring-framework/migrate-sql-database-to-passwordless-connection.md)
 - [Microsoft identity platform (Azure Active Directory for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
 - [Java support on Azure and Azure Stack](https://learn.microsoft.com/en-us/azure/developer/java/fundamentals/java-support-on-azure?source=recommendations)
 - [Java JDK 8](https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u362-b09/OpenJDK8U-jdk_x64_windows_hotspot_8u362b09.msi)
