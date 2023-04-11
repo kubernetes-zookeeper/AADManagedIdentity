@@ -70,12 +70,6 @@ Alternatively, clone this repository:
 git clone https://github.com/kubernetes-zookeeper/AADManagedIdentity.git
 ```
 
-3. Expand the following java `modules.zip`:
-
-```Shell
-Expand-Archive .\AADManagedIdentity\AADManagedIdentity-main\java\lib\modules.zip -DestinationPath .\AADManagedIdentity\AADManagedIdentity-main\java\lib\
-```
-
 ### Step 2: Create the Managed User Identity and Azure SQL database
 
 #### Choose the Azure AD tenant where you want to create your applications
@@ -161,9 +155,13 @@ This will generate a `AADManagedIdentity-1.0.0.jar` file in your `target` folder
 For more information, see:
 
 - [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) conceptual documentation.
+- [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
+- [Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview)
+- [Use a managed identity in Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity)
+- [Best practices for authentication and authorization in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-identity)
 - [Microsoft identity platform (Azure Active Directory for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
 - [Java support on Azure and Azure Stack](https://learn.microsoft.com/en-us/azure/developer/java/fundamentals/java-support-on-azure?source=recommendations)
-- [Java JDK 11](https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.18%2B10/OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.msi)
+- [Java JDK 8](https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u362-b09/OpenJDK8U-jdk_x64_windows_hotspot_8u362b09.msi)
 - [Feature dependencies of the Microsoft JDBC Driver for SQL Server](https://learn.microsoft.com/en-us/sql/connect/jdbc/feature-dependencies-of-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver16)
 - [git for windows](https://git-scm.com/download/win)
 - [maven](https://maven.apache.org/)
