@@ -46,6 +46,7 @@ public class AADManagedIdentity {
 
         org.apache.tomcat.jdbc.pool.DataSource datasource = new org.apache.tomcat.jdbc.pool.DataSource();
         datasource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		logger.info("Driver Class Name: 'com.microsoft.sqlserver.jdbc.SQLServerDriver'.");
 
         Properties properties = new Properties();
         properties.put("authentication", "ActiveDirectoryManagedIdentity");
