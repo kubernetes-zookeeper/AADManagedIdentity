@@ -35,7 +35,7 @@ To run this sample, you'll need:
 - [Azure Windows virtual machine](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
   .
 - Optionally, working installation
-  of [Java 11](https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.18%2B10/OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.msi)
+  of [Java 8](https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u362-b09/OpenJDK8U-jdk_x64_windows_hotspot_8u362b09.msi)
   or greater and [Maven](https://maven.apache.org/).
 
 In the following sample, you will create the following:
