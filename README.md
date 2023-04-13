@@ -158,6 +158,7 @@ For more information, see:
 - [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
 - [Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview)
 - [Use a managed identity in Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity)
+- [How to connect AKS generated UMI to Azure SQL Database?](https://learn.microsoft.com/en-us/answers/questions/919085/how-to-connect-aks-generated-umi-to-azure-sql-data)
 - [Best practices for authentication and authorization in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-identity)
 - [Migrate an application to use passwordless connections with Azure SQL Database](https://github.com/MicrosoftDocs/azure-dev-docs/blob/main/articles/java/spring-framework/migrate-sql-database-to-passwordless-connection.md)
 - [Microsoft identity platform (Azure Active Directory for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
