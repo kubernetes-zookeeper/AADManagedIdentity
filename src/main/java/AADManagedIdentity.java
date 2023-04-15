@@ -61,8 +61,8 @@ public class AADManagedIdentity {
         String user,
         String password) throws IOException {
 
-        boolean encrypt = false;
-        boolean trustServerCertificate = true;
+        boolean encrypt = true;
+        boolean trustServerCertificate = false;
         int loginTimeout = 120;
         org.apache.tomcat.jdbc.pool.DataSource datasource = new org.apache.tomcat.jdbc.pool.DataSource();
         datasource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
