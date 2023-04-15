@@ -155,6 +155,14 @@ This will generate a `AADManagedIdentity-1.0.0.jar` file in your `target` folder
 For more information, see:
 
 - [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) conceptual documentation.
+- [Use a managed identity in Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity)
+- [Azure - Using a Managed Identity to authenticate AKS to KeyVault and other resources](https://stackoverflow.com/questions/69925031/azure-using-a-managed-identity-to-authenticate-aks-to-keyvault-and-other-resou)
+- [Access Secrets in AKV using Managed identities for AKS](https://dev.to/vivekanandrapaka/access-secrets-from-akv-using-managed-identities-for-aks-91p)
+- [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
+- [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade)
+- [Best practices for authentication and authorization in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-identity)
+- [How to update only node image in AKS which has no virtual machine scale set?](https://learn.microsoft.com/en-us/answers/questions/905165/how-to-update-only-node-image-in-aks-which-has-no)
+- [Creating an Azure Kubernetes Cluster (AKS) with Managed Identities](https://kumar-allamraju.medium.com/creating-an-azure-kubernetes-cluster-aks-with-managed-identities-49e70c0cc4c0)
 - [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
 - [Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview)
 - [Use a managed identity in Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity)
