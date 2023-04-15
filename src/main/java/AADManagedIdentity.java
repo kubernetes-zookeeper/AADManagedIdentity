@@ -127,10 +127,10 @@ public class AADManagedIdentity {
         user = properties.getProperty(USER);
         password = properties.getProperty(PASSWORD);
 		
-		if ( (authentication == null) || (user == null) ) {
-            String errorMessage = "Failed to read '" + AUTHENTICATION + "' or '" + USER + "' from properties file.";
+	if ( (authentication == null) || (serverName == null) ) {
+            String errorMessage = "Failed to read '" + AUTHENTICATION + "' or '" + SERVER_NAME + "' from properties file.";
             System.err.println(errorMessage);
             throw new IOException(errorMessage);
-		}
+	}
     }
 }
